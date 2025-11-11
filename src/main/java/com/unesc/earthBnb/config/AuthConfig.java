@@ -1,0 +1,22 @@
+package com.unesc.earthBnb.config;
+
+import com.unesc.earthBnb.repository.UsuarioRespository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+@Service
+public class AuthConfig implements UserDetailsService {
+
+    private final UsuarioRespository userRepository;
+
+    public AuthConfig(UsuarioRespository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findUsuariosByUsuario(username).orElseThrow(() -> new UsernameNotFoundException(username));
+    }
+}
