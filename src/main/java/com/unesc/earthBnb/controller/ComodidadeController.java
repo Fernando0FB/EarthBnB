@@ -20,6 +20,11 @@ public class ComodidadeController {
         this.comodidadeService = comodidadeService;
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<ComodidadeResponse> getComodidadeById(@PathVariable Long id) {
+        return ResponseEntity.ok(comodidadeService.getComodidadeById(id));
+    }
+
     @GetMapping
     public ResponseEntity<List<ComodidadeResponse>> getAllComodidades() {
         return ResponseEntity.ok(comodidadeService.getAllComodidades());
@@ -28,7 +33,7 @@ public class ComodidadeController {
     @PostMapping
     public ResponseEntity<ComodidadeResponse> createComodidade(@Valid @RequestBody ComodidadeRequest comodidadeRequest) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(comodidadeService.create(comodidadeRequest));
+                .body(comodidadeService.createComodidade(comodidadeRequest));
     }
 
     @PutMapping("/{id}")
@@ -38,5 +43,8 @@ public class ComodidadeController {
     ) {
         return ResponseEntity.ok(comodidadeService.updateComodidade(id, comodidade));
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteComodidade(@RequestParam Long id) {comodidadeService.deleteComodidade(id);}
 
 }

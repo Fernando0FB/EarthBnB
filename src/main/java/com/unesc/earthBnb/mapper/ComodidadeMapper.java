@@ -19,4 +19,10 @@ public class ComodidadeMapper {
         );
     }
 
+    public static void merge(Comodidades entity, ComodidadeRequest req) {
+        if (req.nome() !=  null) {
+            entity.setNome(req.nome());
+        }
+    }
+
 }
