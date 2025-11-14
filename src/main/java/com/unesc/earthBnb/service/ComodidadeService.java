@@ -51,6 +51,9 @@ public class ComodidadeService {
 
     @Transactional
     public void deleteComodidade(Long id) {
+        if (!comodidadeRepository.existsById(id)) {
+            throw new ComodidadeNaoEncontradoException(id);
+        }
         comodidadeRepository.deleteById(id);
     }
 

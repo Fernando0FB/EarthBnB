@@ -51,6 +51,9 @@ public class AvaliacaoService {
 
     @Transactional
     public void deleteAvaliacoes(Long id) {
+        if (!avaliacaoRepository.existsById(id)) {
+            throw new AvaliacaoNaoEncontradoException(id);
+        }
         avaliacaoRepository.deleteById(id);
     }
 

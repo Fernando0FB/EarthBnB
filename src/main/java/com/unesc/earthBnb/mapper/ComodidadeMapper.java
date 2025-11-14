@@ -8,6 +8,7 @@ public class ComodidadeMapper {
 
     public static Comodidades toEntity(ComodidadeRequest comodidadeRequest) {
         return Comodidades.builder()
+                .id(comodidadeRequest.id())
                 .nome(comodidadeRequest.nome())
                 .build();
     }
@@ -21,6 +22,7 @@ public class ComodidadeMapper {
 
     public static void merge(Comodidades entity, ComodidadeRequest req) {
         if (req.nome() !=  null) {
+            entity.setId(req.id());
             entity.setNome(req.nome());
         }
     }
