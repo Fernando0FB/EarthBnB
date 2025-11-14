@@ -26,12 +26,12 @@ public class AvaliacaoController {
     }
 
     @GetMapping
-    public ResponseEntity<List<AvaliacaoResponse>> getAllAvaliacoes(){
+    public ResponseEntity<List<AvaliacaoResponse>> getAllAvaliacoes() {
         return ResponseEntity.ok(avaliacaoService.getAllAvaliacoes());
     }
 
     @PostMapping
-    public ResponseEntity<AvaliacaoResponse> createAvaliacao(@Valid @RequestBody AvaliacaoRequest avaliacaoRequest){
+    public ResponseEntity<AvaliacaoResponse> createAvaliacao(@Valid @RequestBody AvaliacaoRequest avaliacaoRequest) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(avaliacaoService.createAvaliacoes(avaliacaoRequest));
     }
@@ -45,6 +45,9 @@ public class AvaliacaoController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteAvaliacoes(@RequestParam Long id){avaliacaoService.deleteAvaliacoes(id);}
+    public ResponseEntity<Void> deleteAvaliacoes(@RequestParam Long id) {
+        avaliacaoService.deleteAvaliacoes(id);
+        return ResponseEntity.noContent().build();
+    }
 
 }

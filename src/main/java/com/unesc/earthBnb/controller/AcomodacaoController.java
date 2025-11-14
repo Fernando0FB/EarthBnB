@@ -45,8 +45,9 @@ public class AcomodacaoController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteAcomodacao(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteAcomodacao(@PathVariable Long id) {
         acomodacaoService.deleteAcomodacao(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
