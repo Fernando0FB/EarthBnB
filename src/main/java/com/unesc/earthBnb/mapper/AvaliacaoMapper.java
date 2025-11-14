@@ -1,8 +1,7 @@
 package com.unesc.earthBnb.mapper;
 
-import com.unesc.earthBnb.dto.AvaliacaoRequest;
-import com.unesc.earthBnb.dto.AvaliacaoResponse;
-import com.unesc.earthBnb.dto.ComodidadeRequest;
+import com.unesc.earthBnb.dto.request.AvaliacaoRequest;
+import com.unesc.earthBnb.dto.response.AvaliacaoResponse;
 import com.unesc.earthBnb.model.Avaliacoes;
 
 public class AvaliacaoMapper {

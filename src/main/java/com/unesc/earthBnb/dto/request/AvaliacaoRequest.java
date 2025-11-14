@@ -1,10 +1,8 @@
-package com.unesc.earthBnb.dto;
+package com.unesc.earthBnb.dto.request;
 
 import com.unesc.earthBnb.model.Reservas;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
 

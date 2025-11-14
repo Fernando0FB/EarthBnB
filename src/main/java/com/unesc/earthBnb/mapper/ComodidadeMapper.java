@@ -1,7 +1,7 @@
 package com.unesc.earthBnb.mapper;
 
-import com.unesc.earthBnb.dto.ComodidadeRequest;
-import com.unesc.earthBnb.dto.ComodidadeResponse;
+import com.unesc.earthBnb.dto.request.ComodidadeRequest;
+import com.unesc.earthBnb.dto.response.ComodidadeResponse;
 import com.unesc.earthBnb.model.Comodidades;
 
 public class ComodidadeMapper {

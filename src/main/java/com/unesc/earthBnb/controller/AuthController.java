@@ -1,10 +1,10 @@
 package com.unesc.earthBnb.controller;
 
 import com.unesc.earthBnb.config.TokenConfig;
-import com.unesc.earthBnb.dto.LoginRequest;
-import com.unesc.earthBnb.dto.LoginResponse;
-import com.unesc.earthBnb.dto.UsuarioRequest;
-import com.unesc.earthBnb.dto.UsuarioResponse;
+import com.unesc.earthBnb.dto.request.LoginRequest;
+import com.unesc.earthBnb.dto.response.LoginResponse;
+import com.unesc.earthBnb.dto.request.UsuarioRequest;
+import com.unesc.earthBnb.dto.response.UsuarioResponse;
 import com.unesc.earthBnb.enums.Role;
 import com.unesc.earthBnb.mapper.UsuarioMapper;
 import com.unesc.earthBnb.model.Usuarios;

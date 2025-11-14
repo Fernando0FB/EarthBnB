@@ -1,7 +1,7 @@
 package com.unesc.earthBnb.mapper;
 
-import com.unesc.earthBnb.dto.UsuarioRequest;
-import com.unesc.earthBnb.dto.UsuarioResponse;
+import com.unesc.earthBnb.dto.request.UsuarioRequest;
+import com.unesc.earthBnb.dto.response.UsuarioResponse;
 import com.unesc.earthBnb.model.Usuarios;
 
 public class UsuarioMapper {

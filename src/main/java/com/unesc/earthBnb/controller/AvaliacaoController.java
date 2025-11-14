@@ -1,9 +1,8 @@
 package com.unesc.earthBnb.controller;
 
-import com.unesc.earthBnb.dto.AvaliacaoRequest;
-import com.unesc.earthBnb.dto.AvaliacaoResponse;
+import com.unesc.earthBnb.dto.request.AvaliacaoRequest;
+import com.unesc.earthBnb.dto.response.AvaliacaoResponse;
 import com.unesc.earthBnb.service.AvaliacaoService;
-import com.unesc.earthBnb.service.ComodidadeService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

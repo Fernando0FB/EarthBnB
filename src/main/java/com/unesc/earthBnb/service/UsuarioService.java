@@ -1,7 +1,7 @@
 package com.unesc.earthBnb.service;
 
-import com.unesc.earthBnb.dto.UsuarioRequest;
-import com.unesc.earthBnb.dto.UsuarioResponse;
+import com.unesc.earthBnb.dto.request.UsuarioRequest;
+import com.unesc.earthBnb.dto.response.UsuarioResponse;
 import com.unesc.earthBnb.exception.UsuarioNaoEncontradoException;
 import com.unesc.earthBnb.mapper.UsuarioMapper;
 import com.unesc.earthBnb.model.Usuarios;
