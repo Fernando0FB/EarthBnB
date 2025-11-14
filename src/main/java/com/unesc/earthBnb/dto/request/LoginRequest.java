@@ -1,4 +1,4 @@
-package com.unesc.earthBnb.dto;
+package com.unesc.earthBnb.dto.request;
 
 import jakarta.validation.constraints.NotEmpty;
 

@@ -1,4 +1,4 @@
-package com.unesc.earthBnb.dto;
+package com.unesc.earthBnb.dto.request;
 
 import com.unesc.earthBnb.enums.Role;
 import jakarta.validation.constraints.Email;

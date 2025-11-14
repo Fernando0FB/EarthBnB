@@ -1,13 +1,11 @@
 package com.unesc.earthBnb.service;
 
-import com.unesc.earthBnb.dto.AvaliacaoRequest;
-import com.unesc.earthBnb.dto.AvaliacaoResponse;
-import com.unesc.earthBnb.dto.ComodidadeRequest;
+import com.unesc.earthBnb.dto.request.AvaliacaoRequest;
+import com.unesc.earthBnb.dto.response.AvaliacaoResponse;
 import com.unesc.earthBnb.exception.AvaliacaoNaoEncontradoException;
 import com.unesc.earthBnb.mapper.AvaliacaoMapper;
 import com.unesc.earthBnb.model.Avaliacoes;
 import com.unesc.earthBnb.repository.AvaliacaoRepository;
-import com.unesc.earthBnb.repository.ComodidadeRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -53,6 +51,9 @@ public class AvaliacaoService {
 
     @Transactional
     public void deleteAvaliacoes(Long id) {
+        if (!avaliacaoRepository.existsById(id)) {
+            throw new AvaliacaoNaoEncontradoException(id);
+        }
         avaliacaoRepository.deleteById(id);
     }
 
