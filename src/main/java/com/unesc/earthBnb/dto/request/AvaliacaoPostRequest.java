@@ -1,23 +1,29 @@
 package com.unesc.earthBnb.dto.request;
 
-import com.unesc.earthBnb.model.Reservas;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDateTime;
 
 public record AvaliacaoPostRequest(
-        @NotBlank(message = "Reserva é obrigatório")
-        Reservas reserva,
+        @NotNull(message = "Reserva é obrigatório")
+        ReservaRequest reserva,
 
-        @NotBlank(message = "Nota é obrigatório")
+        @NotNull(message = "Nota é obrigatório")
+        @Min(value = 1, message = "A nota tem que ser igual ou maior que 1")
+        @Max(value = 10, message = "A nota tem que ser igual ou menor que 10")
         Integer nota,
 
         @Size(max = 80, message = "Comentário deve ter no máximo 80 caracteres")
-        String comentario,
-
-        @NotBlank(message = "Data é obrigatório")
-        LocalDateTime dataAvaliacao
+        String comentario
 ) {
+    public record ReservaRequest(
+            @NotNull(message = "Id da reserva é obrigatório")
+            Long id
+    ) {
+        public Long getId() {
+            return id;
+        }
+    }
 }
 
