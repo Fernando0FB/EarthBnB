@@ -1,6 +1,6 @@
 package com.unesc.earthBnb.controller;
 
-import com.unesc.earthBnb.dto.request.UsuarioRequest;
+import com.unesc.earthBnb.dto.request.UsuarioPutRequest;
 import com.unesc.earthBnb.dto.response.UsuarioResponse;
 import com.unesc.earthBnb.service.UsuarioService;
 import jakarta.validation.Valid;
@@ -31,13 +31,13 @@ public class UsuarioController {
     @PutMapping("/{id}")
     public ResponseEntity<UsuarioResponse> updateUsuario(
             @PathVariable Long id,
-            @Valid @RequestBody UsuarioRequest usuario
+            @Valid @RequestBody UsuarioPutRequest usuario
     ) {
         return ResponseEntity.ok(usuariosService.updateUsuario(id, usuario));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUsuario(@RequestParam Long id) {
+    public ResponseEntity<Void> deleteUsuario(@PathVariable Long id) {
         usuariosService.deleteUsuario(id);
         return ResponseEntity.noContent().build();
     }

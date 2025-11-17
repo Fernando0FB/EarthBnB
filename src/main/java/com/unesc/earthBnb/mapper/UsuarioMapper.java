@@ -1,12 +1,13 @@
 package com.unesc.earthBnb.mapper;
 
-import com.unesc.earthBnb.dto.request.UsuarioRequest;
+import com.unesc.earthBnb.dto.request.UsuarioPostRequest;
+import com.unesc.earthBnb.dto.request.UsuarioPutRequest;
 import com.unesc.earthBnb.dto.response.UsuarioResponse;
 import com.unesc.earthBnb.model.Usuarios;
 
 public class UsuarioMapper {
 
-    public static Usuarios toEntity(UsuarioRequest request) {
+    public static Usuarios toEntity(UsuarioPostRequest request) {
         return Usuarios.builder()
                 .nome(request.nome())
                 .email(request.email())
@@ -27,10 +28,9 @@ public class UsuarioMapper {
         );
     }
 
-    public static void merge(Usuarios entity, UsuarioRequest req) {
+    public static void merge(Usuarios entity, UsuarioPutRequest req) {
         if (req.nome() != null) entity.setNome(req.nome());
         if (req.email() != null) entity.setEmail(req.email());
-        if (req.senha() != null) entity.setSenha(req.senha());
         if (req.usuario() != null) entity.setUsuario(req.usuario());
         if (req.telefone() != null) entity.setTelefone(req.telefone());
     }
