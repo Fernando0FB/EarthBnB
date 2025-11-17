@@ -1,6 +1,7 @@
 package com.unesc.earthBnb.service;
 
-import com.unesc.earthBnb.dto.request.AvaliacaoRequest;
+import com.unesc.earthBnb.dto.request.AvaliacaoPostRequest;
+import com.unesc.earthBnb.dto.request.AvaliacaoPutRequest;
 import com.unesc.earthBnb.dto.response.AvaliacaoResponse;
 import com.unesc.earthBnb.exception.AvaliacaoNaoEncontradoException;
 import com.unesc.earthBnb.mapper.AvaliacaoMapper;
@@ -34,17 +35,17 @@ public class AvaliacaoService {
     }
 
     @Transactional
-    public AvaliacaoResponse createAvaliacoes(AvaliacaoRequest avaliacaoRequest) {
-        Avaliacoes avaliacoes = AvaliacaoMapper.toEntity(avaliacaoRequest);
+    public AvaliacaoResponse createAvaliacoes(AvaliacaoPostRequest avaliacaoPostRequest) {
+        Avaliacoes avaliacoes = AvaliacaoMapper.toEntity(avaliacaoPostRequest);
         avaliacoes = avaliacaoRepository.save(avaliacoes);
         return AvaliacaoMapper.toResponse(avaliacoes);
     }
 
     @Transactional
-    public AvaliacaoResponse updateAvaliacoes(Long id, AvaliacaoRequest avaliacaoUpdate) {
+    public AvaliacaoResponse updateAvaliacoes(Long id, AvaliacaoPutRequest avaliacaoPutRequest) {
         Avaliacoes avaliacoes = avaliacaoRepository.findById(id).orElseThrow(() -> new AvaliacaoNaoEncontradoException(id));
 
-        AvaliacaoMapper.merge(avaliacoes, avaliacaoUpdate);
+        AvaliacaoMapper.merge(avaliacoes, avaliacaoPutRequest);
         avaliacoes = avaliacaoRepository.save(avaliacoes);
         return AvaliacaoMapper.toResponse(avaliacoes);
     }

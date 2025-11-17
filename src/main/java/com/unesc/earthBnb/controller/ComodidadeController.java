@@ -45,7 +45,7 @@ public class ComodidadeController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteComodidade(@RequestParam Long id) {
+    public ResponseEntity<Void> deleteComodidade(@PathVariable Long id) {
         comodidadeService.deleteComodidade(id);
         return ResponseEntity.noContent().build();
     }

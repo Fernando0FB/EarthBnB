@@ -1,6 +1,7 @@
 package com.unesc.earthBnb.controller;
 
-import com.unesc.earthBnb.dto.request.AvaliacaoRequest;
+import com.unesc.earthBnb.dto.request.AvaliacaoPostRequest;
+import com.unesc.earthBnb.dto.request.AvaliacaoPutRequest;
 import com.unesc.earthBnb.dto.response.AvaliacaoResponse;
 import com.unesc.earthBnb.service.AvaliacaoService;
 import jakarta.validation.Valid;
@@ -31,21 +32,21 @@ public class AvaliacaoController {
     }
 
     @PostMapping
-    public ResponseEntity<AvaliacaoResponse> createAvaliacao(@Valid @RequestBody AvaliacaoRequest avaliacaoRequest) {
+    public ResponseEntity<AvaliacaoResponse> createAvaliacao(@Valid @RequestBody AvaliacaoPostRequest avaliacaoPostRequest) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(avaliacaoService.createAvaliacoes(avaliacaoRequest));
+                .body(avaliacaoService.createAvaliacoes(avaliacaoPostRequest));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<AvaliacaoResponse> updateAvaliacoes(
             @PathVariable Long id,
-            @RequestBody AvaliacaoRequest avaliacaoRequest
+            @RequestBody AvaliacaoPutRequest avaliacaoPutRequest
     ) {
-        return ResponseEntity.ok(avaliacaoService.updateAvaliacoes(id, avaliacaoRequest));
+        return ResponseEntity.ok(avaliacaoService.updateAvaliacoes(id, avaliacaoPutRequest));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteAvaliacoes(@RequestParam Long id) {
+    public ResponseEntity<Void> deleteAvaliacoes(@PathVariable Long id) {
         avaliacaoService.deleteAvaliacoes(id);
         return ResponseEntity.noContent().build();
     }

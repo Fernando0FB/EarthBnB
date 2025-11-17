@@ -1,6 +1,7 @@
 package com.unesc.earthBnb.mapper;
 
-import com.unesc.earthBnb.dto.request.AcomodacaoRequest;
+import com.unesc.earthBnb.dto.request.AcomodacaoPostRequest;
+import com.unesc.earthBnb.dto.request.AcomodacaoPutRequest;
 import com.unesc.earthBnb.dto.response.AcomodacaoResponse;
 import com.unesc.earthBnb.model.Acomodacoes;
 
@@ -22,23 +23,23 @@ public class AcomodacaoMapper {
         );
     }
 
-    public static Acomodacoes toEntity(AcomodacaoRequest acomodacaoRequest) {
+    public static Acomodacoes toEntity(AcomodacaoPostRequest acomodacaoPostRequest) {
         return new Acomodacoes(
                 null,
-                acomodacaoRequest.titulo(),
-                acomodacaoRequest.descricao(),
-                acomodacaoRequest.precoDiaria(),
-                acomodacaoRequest.enderecoCompleto(),
-                acomodacaoRequest.maxHospedes(),
-                acomodacaoRequest.quantidadeQuartos(),
-                acomodacaoRequest.quantidadeBanheiros(),
-                acomodacaoRequest.aceitaPets(),
-                acomodacaoRequest.comodidades().stream().map(ComodidadeMapper::toEntity).toList(),
-                acomodacaoRequest.tipoAcomodacao()
+                acomodacaoPostRequest.titulo(),
+                acomodacaoPostRequest.descricao(),
+                acomodacaoPostRequest.precoDiaria(),
+                acomodacaoPostRequest.enderecoCompleto(),
+                acomodacaoPostRequest.maxHospedes(),
+                acomodacaoPostRequest.quantidadeQuartos(),
+                acomodacaoPostRequest.quantidadeBanheiros(),
+                acomodacaoPostRequest.aceitaPets(),
+                acomodacaoPostRequest.comodidades().stream().map(ComodidadeMapper::toEntity).toList(),
+                acomodacaoPostRequest.tipoAcomodacao()
         );
     }
 
-    public static Acomodacoes merge(Acomodacoes entity, AcomodacaoRequest req) {
+    public static Acomodacoes merge(Acomodacoes entity, AcomodacaoPutRequest req) {
         if(req.titulo() != null) entity.setTitulo(req.titulo());
         if(req.descricao() != null) entity.setDescricao(req.descricao());
         if(req.precoDiaria() != null) entity.setPrecoDiaria(req.precoDiaria());
@@ -47,7 +48,6 @@ public class AcomodacaoMapper {
         if(req.quantidadeQuartos() != null) entity.setQuantidadeQuartos(req.quantidadeQuartos());
         if(req.quantidadeBanheiros() != null) entity.setQuantidadeBanheiros(req.quantidadeBanheiros());
         if(req.aceitaPets() != null) entity.setAceitaPets(req.aceitaPets());
-        if(req.comodidades() != null) entity.setComodidades(req.comodidades().stream().map(ComodidadeMapper::toEntity).toList());
         if(req.tipoAcomodacao() != null) entity.setTipoAcomodacao(req.tipoAcomodacao());
         return entity;
     }

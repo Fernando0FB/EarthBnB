@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 
 import java.time.LocalDateTime;
 
-public record AvaliacaoRequest(
+public record AvaliacaoPostRequest(
         @NotBlank(message = "Reserva é obrigatório")
         Reservas reserva,
 

@@ -43,7 +43,6 @@ public class ComodidadeService {
     @Transactional
     public ComodidadeResponse updateComodidade(Long id, ComodidadeRequest comodidadeUpdate) {
         Comodidades comodidade = comodidadeRepository.findById(id).orElseThrow(() -> new ComodidadeNaoEncontradoException(id));
-
         ComodidadeMapper.merge(comodidade, comodidadeUpdate);
         comodidade = comodidadeRepository.save(comodidade);
         return ComodidadeMapper.toResponse(comodidade);
