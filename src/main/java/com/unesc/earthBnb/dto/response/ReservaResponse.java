@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 
 public record ReservaResponse(
         Long id,
-        UsuarioResponse usuarioResponse,
-        AcomodacaoResponse acomodacaoResponse,
+        UsuarioResponse usuario,
+        AcomodacaoResponse acomodacao,
         LocalDate dataCheckin,
         LocalDate dataCheckout,
         Integer quantidadeDiarias,
