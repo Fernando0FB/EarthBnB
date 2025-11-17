@@ -1,6 +1,7 @@
 package com.unesc.earthBnb.controller;
 
-import com.unesc.earthBnb.dto.request.AcomodacaoRequest;
+import com.unesc.earthBnb.dto.request.AcomodacaoPostRequest;
+import com.unesc.earthBnb.dto.request.AcomodacaoPutRequest;
 import com.unesc.earthBnb.dto.response.AcomodacaoResponse;
 import com.unesc.earthBnb.service.AcomodacaoService;
 import jakarta.validation.Valid;
@@ -31,22 +32,23 @@ public class AcomodacaoController {
     }
 
     @PostMapping
-    public ResponseEntity<AcomodacaoResponse> createAcomodacao(@Valid @RequestBody AcomodacaoRequest acomodacaoRequest) {
+    public ResponseEntity<AcomodacaoResponse> createAcomodacao(@Valid @RequestBody AcomodacaoPostRequest acomodacaoPostRequest) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(acomodacaoService.createAcomodacao(acomodacaoRequest));
+                .body(acomodacaoService.createAcomodacao(acomodacaoPostRequest));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<AcomodacaoResponse> updateAcomodacao(
             @PathVariable Long id,
-            @Valid @RequestBody AcomodacaoRequest acomodacaoRequest
+            @Valid @RequestBody AcomodacaoPutRequest acomodacaoPutRequest
     ) {
-        return ResponseEntity.ok(acomodacaoService.updateAcomodacao(id, acomodacaoRequest));
+        return ResponseEntity.ok(acomodacaoService.updateAcomodacao(id, acomodacaoPutRequest));
     }
 
     @DeleteMapping("/{id}")
-    public void deleteAcomodacao(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteAcomodacao(@PathVariable Long id) {
         acomodacaoService.deleteAcomodacao(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
