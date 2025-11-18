@@ -13,7 +13,8 @@ CREATE TABLE tb_usuarios (
 CREATE TABLE user_roles (
                             user_id BIGINT NOT NULL,
                             role VARCHAR(255) NOT NULL,
-                            FOREIGN KEY (user_id) REFERENCES tb_usuarios(id)
+                            FOREIGN KEY (user_id) REFERENCES tb_usuarios(id),
+                            CONSTRAINT chk_role CHECK (role IN ('ROLE_USER', 'ROLE_ADMIN'))
 );
 
 -- Tabela de comodidades
@@ -33,7 +34,8 @@ CREATE TABLE tb_acomodacoes (
                                 quantidade_quartos INTEGER NOT NULL,
                                 quantidade_banheiros INTEGER NOT NULL,
                                 aceita_pets BOOLEAN NOT NULL,
-                                tipo_acomodacao VARCHAR(20) NOT NULL
+                                tipo_acomodacao VARCHAR(20) NOT NULL,
+                                CONSTRAINT chk_tipo_acomodacao CHECK (tipo_acomodacao IN ('APARTAMENTO', 'CASA', 'QUARTO', 'SITIO'))
 );
 
 -- Tabela intermediária de comodidades e acomodações

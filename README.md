@@ -15,14 +15,14 @@ Antes de iniciar, certifique-se de que os seguintes softwares estão instalados:
 Com o Docker Desktop rodando, execute o comando abaixo para criar e iniciar o container do PostgreSQL:
 
 ```bash
-docker run --name postgres-unesc -e POSTGRES_USER=unesc -e POSTGRES_PASSWORD=unesc -e POSTGRES_DB=unesc -p 5432:5432 -d postgres
+docker run --name postgres-earthbnb -e POSTGRES_USER=admin -e POSTGRES_PASSWORD=admin -e POSTGRES_DB=earthbnbDB -p 5432:5432 -d postgres
 ```
 
-Esse comando cria um container chamado **postgres-unesc** com:
+Esse comando cria um container chamado **postgres-earthbnb** com:
 
-* Usuário: `unesc`
-* Senha: `unesc`
-* Banco: `unesc`
+* Usuário: `admin`
+* Senha: `admin`
+* Banco: `earthbnbDB`
 
 Para verificar se o container está ativo:
 
@@ -36,6 +36,10 @@ docker ps
 
 No diretório raiz do projeto, execute:
 
+```bash
+mvn clean install -DskipTests
+```
+Após, execute:
 ```bash
 mvn spring-boot:run
 ```
