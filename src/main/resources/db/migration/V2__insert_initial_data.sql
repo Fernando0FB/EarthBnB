@@ -1,14 +1,15 @@
 -- Inserir usuários
+-- Todas as senhas inseridas são 123123
 INSERT INTO tb_usuarios (nome, email, usuario, senha, telefone, criado_em) VALUES
-                                                                               ('João Silva', 'joao@email.com', 'joao', '$2a$10$N9qo8uLOickgx2ZMRZoMye', '47999887766', CURRENT_DATE),
-                                                                               ('Maria Santos', 'maria@email.com', 'maria', '$2a$10$N9qo8uLOickgx2ZMRZoMye', '47988776655', CURRENT_DATE),
-                                                                               ('Admin Sistema', 'admin@earthbnb.com', 'admin', '$2a$10$N9qo8uLOickgx2ZMRZoMye', '47977665544', CURRENT_DATE);
+                                                                               ('João Silva', 'joao@email.com', 'joao', '$2y$10$62em7V7NGV90D3ljF7i5M.k/zaz0mKAcRWs6bfp05BQs2nLQza8ge', '47999887766', CURRENT_DATE),
+                                                                               ('Maria Santos', 'maria@email.com', 'maria', '$2y$10$62em7V7NGV90D3ljF7i5M.k/zaz0mKAcRWs6bfp05BQs2nLQza8ge', '47988776655', CURRENT_DATE),
+                                                                               ('Admin Sistema', 'admin@earthbnb.com', 'admin', '$2y$10$62em7V7NGV90D3ljF7i5M.k/zaz0mKAcRWs6bfp05BQs2nLQza8ge', '47977665544', CURRENT_DATE);
 
 -- Inserir roles dos usuários
 INSERT INTO user_roles (user_id, role) VALUES
-                                           (1, 'USER'),
-                                           (2, 'USER'),
-                                           (3, 'ADMIN');
+                                           (1, 'ROLE_USER'),
+                                           (2, 'ROLE_USER'),
+                                           (3, 'ROLE_ADMIN');
 
 -- Inserir comodidades
 INSERT INTO tb_comodidades (nome) VALUES
@@ -27,9 +28,9 @@ INSERT INTO tb_comodidades (nome) VALUES
 INSERT INTO tb_acomodacoes (titulo, descricao, preco_diaria, endereco_completo, max_hospedes, quantidade_quartos, quantidade_banheiros, aceita_pets, tipo_acomodacao) VALUES
                                                                                                                                                                           ('Apartamento Aconchegante Centro', 'Lindo apartamento no coração da cidade com vista panorâmica', 250.00, 'Rua XV de Novembro, 1234 - Centro, Criciúma - SC', 4, 2, 1, true, 'APARTAMENTO'),
                                                                                                                                                                           ('Casa de Praia Confortável', 'Casa ampla a 100m da praia com churrasqueira e área gourmet', 450.00, 'Av. Atlântica, 567 - Balneário Rincão, SC', 8, 4, 3, true, 'CASA'),
-                                                                                                                                                                          ('Loft Moderno', 'Loft moderno e minimalista ideal para casais', 180.00, 'Rua do Comércio, 890 - Centro, Criciúma - SC', 2, 1, 1, false, 'LOFT'),
-                                                                                                                                                                          ('Chalé na Serra', 'Chalé aconchegante com lareira em meio à natureza', 320.00, 'Estrada Geral, km 15 - Serra do Rio do Rastro, SC', 6, 3, 2, true, 'CHALE'),
-                                                                                                                                                                          ('Studio Compacto', 'Studio prático próximo à universidade', 120.00, 'Rua Universitária, 200 - Universitário, Criciúma - SC', 2, 1, 1, false, 'STUDIO');
+                                                                                                                                                                          ('Loft Moderno', 'Loft moderno e minimalista ideal para casais', 180.00, 'Rua do Comércio, 890 - Centro, Criciúma - SC', 2, 1, 1, false, 'CASA'),
+                                                                                                                                                                          ('Chalé na Serra', 'Chalé aconchegante com lareira em meio à natureza', 320.00, 'Estrada Geral, km 15 - Serra do Rio do Rastro, SC', 6, 3, 2, true, 'QUARTO'),
+                                                                                                                                                                          ('Studio Compacto', 'Studio prático próximo à universidade', 120.00, 'Rua Universitária, 200 - Universitário, Criciúma - SC', 2, 1, 1, false, 'QUARTO');
 
 -- Vincular comodidades às acomodações
 -- Apartamento Centro (1) - Wi-Fi, Ar, TV, Cozinha, Varanda
